@@ -1,6 +1,6 @@
 import streamlit as st
-pip install opencv-python
-import cv2
+#pip install opencv-python
+#import cv2
 
 st.write("""
 #Create Pencil Sketch of an Image""")
