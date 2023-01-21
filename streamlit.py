@@ -14,7 +14,10 @@ import pandas as pd
 #Caching the model for faster loading
 @st.cache
 
-st.write("Create Pencil Sketch of an Image")
+st.write("""
+"Create Pencil Sketch of an Image"
+""")
+
 st.header('Input any image')
 
 st.file_uploader(label='upload image', type=['png', 'jpg'], accept_multiple_files=True, label_visibility="visible")
