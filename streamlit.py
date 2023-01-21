@@ -1,7 +1,4 @@
-
-
 import streamlit as st
-import matplotlib.pyplot as plt
 import cv2
 
 st.write("""
