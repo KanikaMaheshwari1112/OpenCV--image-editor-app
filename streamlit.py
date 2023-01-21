@@ -10,20 +10,20 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 
-
 #Caching the model for faster loading
 @st.cache
 
 st.write("""
-Create Pencil Sketch of an Image
+#Create Pencil Sketch of an Image
 """)
 
+#Get Input of image
 st.header('Input any image')
 
 st.file_uploader(label='upload image', type=['png', 'jpg'], accept_multiple_files=True, label_visibility="visible")
 
 # Read the image and convert it into an array
-img = cv2.imread("/content/original_image.jpg")
+img = cv2.imread("original_image.jpg")
 
 # Filters
 grey_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)            # Gray
