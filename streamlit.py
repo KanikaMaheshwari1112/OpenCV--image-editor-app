@@ -1,5 +1,5 @@
 import streamlit as st
-!pip install opencv-python
+pip install opencv-python
 import cv2
 
 st.write("""
