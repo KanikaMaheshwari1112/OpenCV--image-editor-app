@@ -1,4 +1,4 @@
-from opencv-python import as cv2
+from opencv import as cv2
 
 import streamlit as st
 
