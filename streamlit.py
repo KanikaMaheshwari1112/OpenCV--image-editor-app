@@ -15,7 +15,7 @@ import pandas as pd
 @st.cache
 
 st.write("""
-"Create Pencil Sketch of an Image"
+Create Pencil Sketch of an Image
 """)
 
 st.header('Input any image')
