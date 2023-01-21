@@ -4,9 +4,6 @@ import streamlit as st
 import pandas as pd
 import cv2
 
-#Caching the model for faster loading
-@st.cache
-
 st.write("""
 #Create Pencil Sketch of an Image""")
 
