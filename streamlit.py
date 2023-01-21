@@ -9,6 +9,7 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
+import cv2
 
 #Caching the model for faster loading
 @st.cache
