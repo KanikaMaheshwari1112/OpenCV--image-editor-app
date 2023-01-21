@@ -1,38 +1,36 @@
+# Import Library
+import streamlit as st 
+import numpy as np
+from PIL import Image
 import cv2
-import matplotlib.pyplot as plt
-import streamlit as st
 
+# Title
+st.title('Pencil sketch')
+st.markdown("[Asep Saputra](https://mestitahu.com/)")
 
-st.write("""
-#Create Pencil Sketch of an Image""")
+# Cache
+@st.cache
 
-#Get Input of image
-st.header('Input any image')
+# Function for determining 'Dodge'
+def DodgeV2(x,y):
+  return cv2.divide(x, 255-y, scale=256)
 
-st.file_uploader(label='upload image', type=['png', 'jpg'], accept_multiple_files=True, label_visibility="visible")
+# Function for processing images
+def pencilskecth(inp_img):
+  img_gray = cv2.cvtColor(inp_img,cv2.COLOR_BGR2GRAY)
+  img_invert = cv2.bitwise_not(img_gray)
+  img_smoothing = cv2.GaussianBlur(img_invert,(21,21),sigmaX=0,sigmaY=0)
+  final_img = DodgeV2(img_gray,img_smoothing)
+  return final_img
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
-# Read the image and convert it into an array
-img = cv2.imread("original_image.jpg")
+# Upload File and Create Output
+file_image = st.file_uploader("", type=["jpg","jpeg","png"])
 
-# Filters
-grey_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)            # Gray
-invert_image = cv2.bitwise_not(grey_img)                    # Invert gray
-blur = cv2.GaussianBlur(invert_image, (23,33), 0)           # Gaussian Blur GaussianBlur(source, kernel size, standard dev wrt X)
-invert_blur = cv2.bitwise_not(blur)                         # Invert blur
-pencil = cv2.divide(grey_img, invert_blur, scale = 256.0)   # Blend gray with invert blur
-
-
-
-st.write("Pencil Sketch of the image:", pencil)
-
-# Display the final output
-plt.figure(figsize = (15,8))
-plt.subplot(1, 2, 1)
-plt.title("Original Image", color = 'r', fontsize = 15)
-plt.imshow(img)
-plt.axis('off')
-plt.subplot(1, 2, 2)
-plt.title("Pencil Sketch of the Original Image", color = 'k', fontsize = 15)
-plt.imshow(pencil, cmap = 'gray')
-plt.axis('off')
-plt.show()
+if file_image is None:
+  st.warning('Please upload Image or Photo that you will use first!')
+else:
+  input_img = Image.open(file_image)
+  final_sketch = pencilskecth(np.array(input_img))
+  st.success('It worked!!!')
+  st.image(final_sketch, use_column_width=True)
