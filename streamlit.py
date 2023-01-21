@@ -6,7 +6,6 @@ import cv2
 
 # Title
 st.title('Pencil sketch')
-st.markdown("[Asep Saputra](https://kanikamaheshwari1112.com/)")
 
 # Cache
 @st.cache
