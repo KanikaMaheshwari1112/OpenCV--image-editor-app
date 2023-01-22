@@ -71,7 +71,7 @@ else:
     col1, col2 = st.columns(2)
     with col1:
       st.header("Original Image")
-      st.image(load_an_image(image_file), width=250)
+      st.image(input_img, width=250)
   
     with col2:
       st.header("Water Color Sketch")
@@ -94,7 +94,7 @@ else:
      col1, col2 = st.columns(2)
      with col1:
        st.header("Original Image")
-       st.image(load_an_image(image_file), width=250)
+       st.image(input_img, width=250)
   
      with col2:
        st.header("Black and White Sketch")
@@ -117,7 +117,7 @@ else:
      col1, col2 = st.columns(2)
      with col1:
        st.header("Original Image")
-       st.image(load_an_image(image_file), width=250)
+       st.image(input_img, width=250)
   
      with col2:
        st.header("Pencil Sketch")
@@ -140,7 +140,7 @@ else:
     col1, col2 = st.columns(2)
     with col1:
       st.header("Original Image")
-      st.image(load_an_image(image_file), width=250)
+      st.image(input_img, width=250)
   
     with col2:
       st.header("Blur Effect Image")
