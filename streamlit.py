@@ -56,102 +56,105 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Upload File and Create Output
 file_image = st.file_uploader("Upload the Photo", type=["jpg","jpeg","png"])
-input_img = Image.open(file_image)
-st.write('Please select an option from below.')
-filter = st.radio('Covert your photo to:', ['Water Color','Black and White', 'Pencil Sketch', 'Blur Effect']) 
+if file_image is not None:
+    input_img = Image.open(file_image)
+
+
+    st.write('Please select an option from below.')
+    filter = st.radio('Covert your photo to:', ['Water Color','Black and White', 'Pencil Sketch', 'Blur Effect']) 
   
-if filter== 'Water Color':
-    final_sketch= convertto_watercolorsketch(np.array(input_img))
-    im_pil = Image.fromarray(final_sketch)
-    st.success('Your Water Color Sketch is ready. You can download it now.')
-    buf = BytesIO()
-    img = im_pil
-    img.save(buf, format="JPEG")
-    byte_im = buf.getvalue()
-    st.download_button(
+    if filter== 'Water Color':
+        final_sketch= convertto_watercolorsketch(np.array(input_img))
+        im_pil = Image.fromarray(final_sketch)
+        st.success('Your Water Color Sketch is ready. You can download it now.')
+        buf = BytesIO()
+        img = im_pil
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
                     label="Download sketch",
                     data=byte_im,
                     file_name="watercolorsketch.png",
                     mime="image/png"
                 )
-    col1, col2 = st.columns(2)
-    with col1:
-       st.header("Original Image")
-       st.image(input_img, width=250)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.header("Original Image")
+            st.image(input_img, width=250)
   
-    with col2:
-       st.header("Water Color Sketch")
-       st.image(im_pil, width=250)
+        with col2:
+            st.header("Water Color Sketch")
+            st.image(im_pil, width=250)
        
-elif filter== 'Black and White':
-   final_sketch= grayimage(np.array(input_img))
-   im_pil = Image.fromarray(final_sketch)
-   st.success('Your Black and White Sketch is ready. You can download it now.')
-   buf = BytesIO()
-   img = im_pil
-   img.save(buf, format="JPEG")
-   byte_im = buf.getvalue()
-   st.download_button(
+    elif filter== 'Black and White':
+        final_sketch= grayimage(np.array(input_img))
+        im_pil = Image.fromarray(final_sketch)
+        st.success('Your Black and White Sketch is ready. You can download it now.')
+        buf = BytesIO()
+        img = im_pil
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
                     label="Download sketch",
                     data=byte_im,
                     file_name="blackandwhitesketch.png",
                     mime="image/png"
                 )
-   col1, col2 = st.columns(2)
-   with col1:
-       st.header("Original Image")
-       st.image(input_img, width=250)
+       col1, col2 = st.columns(2)
+       with col1:
+           st.header("Original Image")
+           st.image(input_img, width=250)
   
-   with col2:
-       st.header("Black and White Sketch")
-       st.image(im_pil, width=250)
+       with col2:
+           st.header("Black and White Sketch")
+           st.image(im_pil, width=250)
       
-elif filter== 'Pencil Sketch':
-   final_sketch= pencilsketch(np.array(input_img))
-   im_pil = Image.fromarray(final_sketch)
-   st.success('Your Pencil Sketch is ready. You can download it now.')
-   buf = BytesIO()
-   img = im_pil
-   img.save(buf, format="JPEG")
-   byte_im = buf.getvalue()
-   st.download_button(
+   elif filter== 'Pencil Sketch':
+       final_sketch= pencilsketch(np.array(input_img))
+       im_pil = Image.fromarray(final_sketch)
+       st.success('Your Pencil Sketch is ready. You can download it now.')
+       buf = BytesIO()
+       img = im_pil
+       img.save(buf, format="JPEG")
+       byte_im = buf.getvalue()
+       st.download_button(
                     label="Download sketch",
                     data=byte_im,
                     file_name="blackandwhitesketch.png",
                     mime="image/png"
                 )
      
-   col1, col2 = st.columns(2)
-   with col1:
-       st.header("Original Image")
-       st.image(input_img, width=250)
+       col1, col2 = st.columns(2)
+       with col1:
+           st.header("Original Image")
+           st.image(input_img, width=250)
   
-   with col2:
-       st.header("Pencil Sketch")
-       st.image(im_pil, width=250)
+       with col2:
+           st.header("Pencil Sketch")
+           st.image(im_pil, width=250)
        
-elif filter== 'Blur Effect':
-  final_sketch= blurimage(np.array(input_img))
-  im_pil = Image.fromarray(final_sketch)
-  st.success('Your Blur Image is ready. You can download it now.')
-  buf = BytesIO()
-  img = im_pil
-  img.save(buf, format="JPEG")
-  byte_im = buf.getvalue()
-  st.download_button(
+    elif filter== 'Blur Effect':
+        final_sketch= blurimage(np.array(input_img))
+        im_pil = Image.fromarray(final_sketch)
+        st.success('Your Blur Image is ready. You can download it now.')
+        buf = BytesIO()
+        img = im_pil
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
                     label="Download sketch",
                     data=byte_im,
                     file_name="blurimage.png",
                     mime="image/png"
                 )  
-  col1, col2 = st.columns(2)
-  with col1:
-       st.header("Original Image")
-       st.image(input_img, width=250)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.header("Original Image")
+            st.image(input_img, width=250)
   
-  with col2:
-       st.header("Blur Effect Image")
-       st.image(im_pil, width=250)
+        with col2:
+            st.header("Blur Effect Image")
+            st.image(im_pil, width=250)
        
   
     
