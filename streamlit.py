@@ -23,8 +23,9 @@ def DodgeV2(x,y):
 
 #Function for water color sketch
 def convertto_watercolorsketch(inp_img):
-    img_1 = cv2.edgePreservingFilter(inp_img, flags=2, sigma_s=50, sigma_r=0.8)
-    img_water_color = cv2.stylization(img_1, sigma_s=100, sigma_r=0.5)
+    img_1 = cv2.edgePreservingFilter(inp_img, flags=2, sigma_s=5, sigma_r=0.8)
+    img_2= cv2.bilateralFilter(img_1,3,10,5)
+    img_water_color = cv2.stylization(img_2, sigma_s=100, sigma_r=0.5)
     return(img_water_color)
   
 # Function for pencil sketch
