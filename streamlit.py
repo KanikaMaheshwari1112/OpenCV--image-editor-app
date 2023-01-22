@@ -63,7 +63,7 @@ else:
   input_img = Image.open(file_image)
   filter = st.sidebar.radio('Covert your photo to:', ['Water Color','Black and White', 'Pencil Sketch', 'Blur Effect']) 
   
-if filter== 'Water Color':
+  if filter== 'Water Color':
     final_sketch= convertto_watercolorsketch(np.array(input_img))
     im_pil = Image.fromarray(final_sketch)
     st.success('Hurrah!!! Your Water Color Sketch is ready.')
