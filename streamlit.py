@@ -32,12 +32,15 @@ if file_image is None:
 else:
   input_img = Image.open(file_image)
   final_sketch = pencilskecth(np.array(input_img))
-  st.success('Hurrah!!!')
+  st.success('Hurrah!!! Your Pencil Sketch is ready.')
   st.balloons()
-  st.write("**Input Photo**")
-  st.image(input_img, use_column_width=True)
-  st.write("**The Pencil Sketch**")
-  st.image(final_sketch, use_column_width=True)
+  col1, col2 = st.columns( [0.5, 0.5])
+  with col1:
+    st.write("**Input Photo**")
+    st.image(input_img, use_column_width=True)
+  with col2:
+    st.write("**The Pencil Sketch**")
+    st.image(final_sketch, use_column_width=True)
   
   
    
