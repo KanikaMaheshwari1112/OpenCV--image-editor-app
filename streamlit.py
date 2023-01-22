@@ -43,9 +43,9 @@ else:
     st.image(final_sketch, use_column_width=True)
     pencil_sketch= Image.fromarray(final_sketch)
     button = st.download_button(
-            label="Download image",
+            label="Download sketch",
             data='pencil_sketch',
-            file_name="pencil_sketch.png",
+            file_name="pencil_sketch.jpg",
             mime="image/png"
           )
   
