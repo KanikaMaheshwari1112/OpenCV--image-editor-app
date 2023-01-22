@@ -5,7 +5,8 @@ from PIL import Image
 import cv2
 
 # Title
-st.title('Pencil sketch')
+st.title('Pencil Sketch from Photos')
+st.write("This Web App is to help convert your photos to realistic Pencil Sketches")
 
 # Cache
 @st.cache
@@ -24,12 +25,25 @@ def pencilskecth(inp_img):
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Upload File and Create Output
-file_image = st.file_uploader("", type=["jpg","jpeg","png"])
+file_image = st.file_uploader("Upload the Photo", type=["jpg","jpeg","png"])
 
 if file_image is None:
-  st.warning('Please upload Image or Photo that you will use first!')
+  st.warning('Please upload Image or Photo first!')
 else:
   input_img = Image.open(file_image)
   final_sketch = pencilskecth(np.array(input_img))
-  st.success('It worked!!!')
+  st.success('Hurrah!!!')
+  st.balloons()
+  st.write("**Input Photo**")
+  st.image(input_img, use_column_width=True)
+  st.write("**The Pencil Sketch**")
   st.image(final_sketch, use_column_width=True)
+  st.image(final_sketch, use_column_width=True)
+
+  button = st.download_button(
+      label="Download image",
+      data=final_sketch,
+      file_name="pencilsketch.png",
+      mime="image/png")
+   
+
