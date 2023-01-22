@@ -38,11 +38,14 @@ else:
   st.image(input_img, use_column_width=True)
   st.write("**The Pencil Sketch**")
   st.image(final_sketch, use_column_width=True)
-  st.image(final_sketch, use_column_width=True)
-
+  
+  from io import BytesIO
+  buf = BytesIO()
+  final_sketch.save(buf, format="JPEG")
+  byte_im = buf.getvalue()
   button = st.download_button(
       label="Download image",
-      data=final_sketch,
+      data=byte_im,
       file_name="pencilsketch.png",
       mime="image/png")
    
