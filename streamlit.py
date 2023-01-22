@@ -23,7 +23,7 @@ def DodgeV2(x,y):
 
 #Function for water color sketch
 def convertto_watercolorsketch(inp_img):
-    img_1 = cv2.edgePreservingFilter(inp_img, flags=2, sigma_s=5, sigma_r=0.8)
+    img_1 = cv2.edgePreservingFilter(inp_img, flags=2, sigma_s=5)
     img_2= cv2.bilateralFilter(img_1,3,10,5)
     gaussian_mask=cv2.GaussianBlur(img_2,(7,7),2)
     img_3=cv2.addWeighted(img_2,1.5, gaussian_mask ,-0.5,0)
