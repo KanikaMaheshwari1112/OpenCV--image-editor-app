@@ -6,8 +6,8 @@ import cv2
 from io import BytesIO
 
 # Title
-st.title('WEB APPLICATION TO CONVERT IMAGE TO SKETCH')
-st.write("This is an application developed for converting your ***image*** to a ***Water Color Sketch*** OR ***Pencil Sketch*** OR ***Black and White Sketch*** OR ***Blur Image***. ")
+st.title('CONVERT AN IMAGE TO A SKETCH')
+st.write("This is an application developed for converting your ***image*** to a ***Water Color Sketch*** or ***Pencil Sketch*** or ***Black and White Sketch*** or ***Blur Image***. ")
 
 # Cache
 @st.cache
