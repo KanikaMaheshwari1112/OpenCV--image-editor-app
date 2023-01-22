@@ -42,7 +42,7 @@ else:
     st.write("**The Pencil Sketch**")
     st.image(final_sketch, use_column_width=True)
     pencil_sketch= Image.fromarray(final_sketch)
-    with open('pencil_sketch.png') as file:
+    with Image.open('pencil_sketch') as file:
       button = st.download_button(
             label="Download sketch",
             data=file,
