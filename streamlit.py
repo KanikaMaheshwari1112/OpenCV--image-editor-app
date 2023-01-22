@@ -100,14 +100,14 @@ if file_image is not None:
                     file_name="blackandwhitesketch.png",
                     mime="image/png"
                 )
-       col1, col2 = st.columns(2)
-       with col1:
-           st.header("Original Image")
-           st.image(input_img, width=250)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.header("Original Image")
+            st.image(input_img, width=250)
   
-       with col2:
-           st.header("Black and White Sketch")
-           st.image(im_pil, width=250)
+        with col2:
+            st.header("Black and White Sketch")
+            st.image(im_pil, width=250)
       
    elif filter== 'Pencil Sketch':
        final_sketch= pencilsketch(np.array(input_img))
