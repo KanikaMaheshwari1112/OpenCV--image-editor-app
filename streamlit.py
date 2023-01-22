@@ -45,7 +45,7 @@ else:
     button = st.download_button(
             label="Download sketch",
             data='pencil_sketch',
-            file_name="pencil_sketch.jpg",
+            file_name="pencil_sketch",
             mime="image/png"
           )
   
