@@ -109,29 +109,29 @@ if file_image is not None:
             st.header("Black and White Sketch")
             st.image(im_pil, width=250)
       
-   elif filter== 'Pencil Sketch':
-       final_sketch= pencilsketch(np.array(input_img))
-       im_pil = Image.fromarray(final_sketch)
-       st.success('Your Pencil Sketch is ready. You can download it now.')
-       buf = BytesIO()
-       img = im_pil
-       img.save(buf, format="JPEG")
-       byte_im = buf.getvalue()
-       st.download_button(
+    elif filter== 'Pencil Sketch':
+        final_sketch= pencilsketch(np.array(input_img))
+        im_pil = Image.fromarray(final_sketch)
+        st.success('Your Pencil Sketch is ready. You can download it now.')
+        buf = BytesIO()
+        img = im_pil
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
                     label="Download sketch",
                     data=byte_im,
                     file_name="blackandwhitesketch.png",
                     mime="image/png"
                 )
      
-       col1, col2 = st.columns(2)
-       with col1:
-           st.header("Original Image")
-           st.image(input_img, width=250)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.header("Original Image")
+            st.image(input_img, width=250)
   
-       with col2:
-           st.header("Pencil Sketch")
-           st.image(im_pil, width=250)
+        with col2:
+            st.header("Pencil Sketch")
+            st.image(im_pil, width=250)
        
     elif filter== 'Blur Effect':
         final_sketch= blurimage(np.array(input_img))
