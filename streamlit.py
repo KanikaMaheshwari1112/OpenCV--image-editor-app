@@ -7,7 +7,7 @@ from io import BytesIO
 
 # Title
 st.title('WEB APPLICATION TO CONVERT IMAGE TO SKETCH')
-st.write("This is an application developed for converting your ***image*** to a ***Water Color Sketch*** OR ***Pencil Sketch*** ")
+st.write("This is an application developed for converting your ***image*** to a ***Water Color Sketch*** OR ***Pencil Sketch*** OR ***Black and White Sketch*** OR ***Blur Image***. ")
 
 # Cache
 @st.cache
