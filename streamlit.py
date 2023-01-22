@@ -7,7 +7,6 @@ from io import BytesIO
 
 # Title
 st.title('CONVERT AN IMAGE TO A SKETCH')
-st.write("This is an application developed for converting your ***image*** to a ***Water Color Sketch*** or ***Pencil Sketch*** or ***Black and White Sketch*** or ***Blur Image***. ")
 
 # Cache
 @st.cache
@@ -49,7 +48,7 @@ def blurimage(inp_img):
 st.sidebar.markdown("**:blue[An Image Editor App]**")
 with st.sidebar.expander("About the App"):
      st.write("""
-        Use this simple application to convert your favorite photos to a watercolor sketch, a pencil sketch, a bleck and white image or an image with blurring effect.  \n Hope you enjoy!
+        Use this simple application to convert your favorite photos to a watercolor sketch, a pencil sketch, a black and white image or an image with blurring effect.  \n Hope you enjoy!
      """)
 
 
@@ -63,11 +62,12 @@ if file_image is None:
 else:
   input_img = Image.open(file_image)
   filter = st.sidebar.radio('Covert your photo to:', ['Water Color','Black and White', 'Pencil Sketch', 'Blur Effect']) 
-  if filter== 'Water Color':
+  
+if filter== 'Water Color':
     final_sketch= convertto_watercolorsketch(np.array(input_img))
     im_pil = Image.fromarray(final_sketch)
     st.success('Hurrah!!! Your Water Color Sketch is ready.')
-    st.balloons()
+    
     col1, col2 = st.columns(2)
     with col1:
       st.header("Original Image")
@@ -90,7 +90,7 @@ else:
      final_sketch= grayimage(np.array(input_img))
      im_pil = Image.fromarray(final_sketch)
      st.success('Hurrah!!! Your Black and White Sketch is ready.')
-     st.balloons()
+     
      col1, col2 = st.columns(2)
      with col1:
        st.header("Original Image")
@@ -113,7 +113,7 @@ else:
      final_sketch= pencilsketch(np.array(input_img))
      im_pil = Image.fromarray(final_sketch)
      st.success('Hurrah!!! Your Pencil Sketch is ready.')
-     st.balloons()
+     
      col1, col2 = st.columns(2)
      with col1:
        st.header("Original Image")
@@ -136,7 +136,7 @@ else:
     final_sketch= blurimage(np.array(input_img))
     im_pil = Image.fromarray(final_sketch)
     st.success('Hurrah!!! Your Blur Image is ready.')
-    st.balloons()
+    
     col1, col2 = st.columns(2)
     with col1:
       st.header("Original Image")
