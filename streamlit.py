@@ -41,7 +41,7 @@ else:
   with col2:
     st.write("**The Pencil Sketch**")
     st.image(final_sketch, use_column_width=True)
-    with open("final_sketch.png", "rb") as file:
+    with open("final_sketch") as file:
       button = st.download_button(
             label="Download image",
             data=file,
