@@ -40,12 +40,11 @@ else:
     st.image(input_img, use_column_width=True)
   with col2:
     st.write("**The Pencil Sketch**")
-    img= st.image(final_sketch, use_column_width=True)
-  
-    img.save('pencil_sketch.png')
+    st.image(final_sketch, use_column_width=True)
+    pencil_sketch= Image.fromarray(final_sketch)
     button = st.download_button(
             label="Download image",
-            data='pencil_sketch.png',
+            data='pencil_sketch',
             file_name="pencil_sketch.png",
             mime="image/png"
           )
