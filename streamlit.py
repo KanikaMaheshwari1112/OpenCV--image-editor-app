@@ -16,13 +16,19 @@ def DodgeV2(x,y):
   return cv2.divide(x, 255-y, scale=256)
 
 # Function for processing images
-def pencilskecth(inp_img):
+def pencilsketch(inp_img):
   img_gray = cv2.cvtColor(inp_img,cv2.COLOR_BGR2GRAY)
   img_invert = cv2.bitwise_not(img_gray)
   img_smoothing = cv2.GaussianBlur(img_invert,(21,21),sigmaX=0,sigmaY=0)
   final_img = DodgeV2(img_gray,img_smoothing)
   return final_img
+
+st.sidebar.markdown("**:blue[An Image Editor App]**")
+
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
+
+
 
 # Upload File and Create Output
 file_image = st.file_uploader("Upload the Photo", type=["jpg","jpeg","png"])
@@ -31,7 +37,7 @@ if file_image is None:
   st.warning('Please upload Image or Photo first!')
 else:
   input_img = Image.open(file_image)
-  final_sketch = pencilskecth(np.array(input_img))
+  final_sketch = pencilsketch(np.array(input_img))
   st.success('Hurrah!!! Your Pencil Sketch is ready.')
   st.balloons()
   col1, col2 = st.columns( [0.5, 0.5])
