@@ -1,6 +1,6 @@
 numpy==1.22.3
 opencv_python_headless==4.5.4.60
 Pillow==9.1.1
-streamlit==1.15.1
+streamlit==1.17.0
 protobuf== 3.20.1
 pip== 22.3.1
